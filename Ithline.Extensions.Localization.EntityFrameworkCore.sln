@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12BBD29B-B449-4009-9398-BEEA6CB588D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ithline.Extensions.Localization.EntityFrameworkCore", "src\Ithline.Extensions.Localization.EntityFrameworkCore\Ithline.Extensions.Localization.EntityFrameworkCore.csproj", "{995884A6-5248-46D6-8E61-DF1177F2E0DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD} = {12BBD29B-B449-4009-9398-BEEA6CB588D5}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
