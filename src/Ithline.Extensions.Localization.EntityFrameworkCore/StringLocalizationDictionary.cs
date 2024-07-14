@@ -26,7 +26,7 @@ internal sealed class StringLocalizationDictionary
         // we try to find a value in the culture hierarchy
         string? value = null;
         var currentCulture = culture;
-        while (currentCulture != CultureInfo.InvariantCulture)
+        while (!currentCulture.IsNeutralCulture)
         {
             var cultureKey = new CultureKey(key, currentCulture);
             if (_cultures.TryGetValue(cultureKey, out value))
@@ -41,7 +41,7 @@ internal sealed class StringLocalizationDictionary
         value ??= invariant;
 
         // if value was found as fallback, add all previous cultures
-        while (culture != currentCulture)
+        while (!culture.Equals(currentCulture))
         {
             var cultureKey = new CultureKey(key, culture);
             _cultures.Add(cultureKey, value);
@@ -72,7 +72,7 @@ internal sealed class StringLocalizationDictionary
 
             // we find current culture info and if it's invariant culture, we skip
             var cultureInfo = CultureInfo.GetCultureInfo(culture.CultureId);
-            if (cultureInfo == CultureInfo.InvariantCulture)
+            if (cultureInfo.IsNeutralCulture)
             {
                 continue;
             }

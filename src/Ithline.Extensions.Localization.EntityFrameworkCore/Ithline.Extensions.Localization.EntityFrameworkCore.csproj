@@ -1,17 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Product>Ithline.Extensions.Localization.EntityFrameworkCore</Product>
-    <Version>0.1.0</Version>
-    <Company>ithline</Company>
-    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
-    <RepositoryType>git</RepositoryType>
-    <Authors>ithline</Authors>
+    <PackageId>Ithline.Extensions.Localization.EntityFrameworkCore</PackageId>
     <PackageTags>localization entityframeworkcore</PackageTags>
-    <Title>Ithline.Extensions.Localization.EntityFrameworkCore</Title>
-    <PackageProjectUrl>https://github.com/ithline/extensions-localization-entityframeworkcore</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <Version>0.1.0</Version>
+    <Authors>ithline</Authors>
+    <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/ithline/extensions-localization-entityframeworkcore</RepositoryUrl>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>

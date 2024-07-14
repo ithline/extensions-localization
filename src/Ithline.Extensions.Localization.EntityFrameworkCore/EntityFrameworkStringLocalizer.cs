@@ -28,6 +28,7 @@ internal sealed class EntityFrameworkStringLocalizer<TContext> : IStringLocalize
             return new LocalizedString(name, format ?? name, resourceNotFound: format is null);
         }
     }
+
     public LocalizedString this[string name, params object[] arguments]
     {
         get
@@ -35,7 +36,7 @@ internal sealed class EntityFrameworkStringLocalizer<TContext> : IStringLocalize
             var dictionary = this.ResolveDictionary();
             var format = dictionary.FindString(name, CultureInfo.CurrentUICulture);
 
-            // TODO: pridat formatovanie podla nazvu
+            // TODO: add named hole formatting
             var value = string.Format(CultureInfo.CurrentUICulture, format ?? name, arguments);
 
             return new LocalizedString(name, value, resourceNotFound: format is null);
@@ -46,6 +47,7 @@ internal sealed class EntityFrameworkStringLocalizer<TContext> : IStringLocalize
     {
         return this;
     }
+
     public IStringLocalizer Create(string baseName, string location)
     {
         return this;
@@ -70,22 +72,20 @@ internal sealed class EntityFrameworkStringLocalizer<TContext> : IStringLocalize
         }
 
         dictionary = new StringLocalizationDictionary();
-        using (var entry = _cache.CreateEntry(CacheKey))
-        {
-            using var db = _contextFactory.CreateDbContext();
-            var entities = db.StringLocalizations
-                .Include(t => t.Cultures)
-                .AsNoTracking()
-                .ToArray();
+        using var entry = _cache.CreateEntry(CacheKey);
+        using var db = _contextFactory.CreateDbContext();
+        var entities = db.StringLocalizations
+            .Include(t => t.Cultures)
+            .AsNoTracking()
+            .ToArray();
 
-            foreach (var entity in entities)
-            {
-                dictionary.Add(entity.Id, entity.Invariant, entity.Cultures);
-            }
-            entry.Value = dictionary;
+        foreach (var entity in entities)
+        {
+            dictionary.Add(entity.Id, entity.Invariant, entity.Cultures);
         }
+
+        entry.Value = dictionary;
 
         return dictionary;
     }
 }
-
