@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
@@ -5,7 +6,7 @@ using Microsoft.Extensions.Localization;
 
 namespace Ithline.Extensions.Localization.EntityFrameworkCore;
 
-internal sealed class EntityFrameworkStringLocalizer<TContext> : IStringLocalizerFactory, IStringLocalizer
+internal sealed class EntityFrameworkStringLocalizer<[DynamicallyAccessedMembers((EFCoreHelpers.MemberTypes))] TContext> : IStringLocalizerFactory, IStringLocalizer
     where TContext : DbContext, IStringLocalizationDbContext
 {
     private const string CacheKey = "__EntityFrameworkStringLocalizer";

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Ithline.Extensions.Localization.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -5,9 +6,18 @@ using Microsoft.Extensions.Localization;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
+/// <summary>
+/// Extension methods for setting up EF Core string localizer in an <see cref="IServiceCollection" />.
+/// </summary>
 public static class EntityFrameworkLocalizationServiceCollectionExtensions
 {
-    public static IServiceCollection AddDbContextLocalization<TContext>(this IServiceCollection services)
+    /// <summary>
+    /// Adds <see cref="DbContext" /> string localizer services to the specified <see cref="IServiceCollection" />.
+    /// </summary>
+    /// <typeparam name="TContext">The type of the <see cref="DbContext" />.</typeparam>
+    /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
+    /// <returns>The <see cref="IServiceCollection" /> so that additional calls can be chained.</returns>
+    public static IServiceCollection AddDbContextLocalization<[DynamicallyAccessedMembers(EFCoreHelpers.MemberTypes)] TContext>(this IServiceCollection services)
         where TContext : DbContext, IStringLocalizationDbContext
     {
         ArgumentNullException.ThrowIfNull(services);
