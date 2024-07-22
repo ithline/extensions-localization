@@ -8,6 +8,7 @@
     <Deterministic>true</Deterministic>
     <IncludeSymbols>true</IncludeSymbols>
 
+    <IsPackable>false</IsPackable>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <ImplicitUsings>true</ImplicitUsings>

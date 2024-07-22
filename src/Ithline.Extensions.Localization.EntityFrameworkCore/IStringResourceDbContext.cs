@@ -12,9 +12,3 @@ public interface IStringResourceDbContext
     /// </summary>
     DbSet<StringResource> StringResources { get; }
 }
-
-public interface IStringResourceChangeToken<TContext>
-    where TContext : DbContext, IStringResourceDbContext
-{
-    void Raise();
-}

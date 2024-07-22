@@ -7,8 +7,10 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
 
-    <Description>Provides custom implementation for
-      Microsoft.Extensions.Localization.IStringLocalizerFactory.</Description>
+    <Description>
+      Provides custom implementation for
+      Microsoft.Extensions.Localization.IStringLocalizerFactory.
+    </Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <IsTrimmable>true</IsTrimmable>
@@ -37,9 +39,6 @@
       RemoveProperties="SetTargetFramework">
       <Output TaskParameter="TargetOutputs" ItemName="_AnalyzerFile" />
     </MSBuild>
-
-    <Message Text="AAAAAA" Importance="high" />
-    <Message Text="%(_AnalyzerFile.AnalyzerPath)" Importance="high" />
 
     <ItemGroup>
       <Content Include="@(_AnalyzerFile)" Pack="True" Condition="!%(_AnalyzerFile.IsSymbol)" />
