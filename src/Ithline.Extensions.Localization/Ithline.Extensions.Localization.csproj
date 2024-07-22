@@ -13,8 +13,9 @@
     </Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
+    <IsPackable>true</IsPackable>
     <IsTrimmable>true</IsTrimmable>
-    <BeforePack>IncludeAnalyzersInPackage</BeforePack>
+    <BeforePack>$(BeforePack);IncludeAnalyzersInPackage</BeforePack>
   </PropertyGroup>
 
   <ItemGroup>
