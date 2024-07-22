@@ -1,31 +1,31 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace Ithline.Extensions.Localization.EntityFrameworkCore.Internal;
 
-internal sealed class ResourceSetBuilder
+internal sealed class ResourceManagerBuilder
 {
     private readonly Dictionary<CultureInfo, Dictionary<string, string>> _builder;
 
-    public ResourceSetBuilder()
+    public ResourceManagerBuilder()
     {
         _builder = [];
     }
 
-    public void Add(string id, CultureInfo culture, string value)
+    public void Add(CultureInfo culture, string key, string value)
     {
         ref var dictionary = ref CollectionsMarshal.GetValueRefOrAddDefault(_builder, culture, out _);
-        dictionary ??= [];
 
-        dictionary[id] = value;
+        dictionary ??= [];
+        dictionary[key] = value;
     }
 
-    public ResourceSetLookup ToImmutable()
+    public ResourceManager ToImmutable()
     {
         var sets = _builder
             .Select(t => new ResourceSet(t.Key, t.Value))
             .ToArray();
 
-        return new ResourceSetLookup(sets);
+        return new ResourceManager(sets);
     }
 }

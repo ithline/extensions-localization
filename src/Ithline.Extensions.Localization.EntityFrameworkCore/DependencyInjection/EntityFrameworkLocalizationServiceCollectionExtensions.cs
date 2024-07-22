@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Ithline.Extensions.Localization;
 using Ithline.Extensions.Localization.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -25,9 +24,18 @@ public static class EntityFrameworkLocalizationServiceCollectionExtensions
         ArgumentNullException.ThrowIfNull(services);
 
         services.TryAddTransient(typeof(IStringLocalizer<>), typeof(StringLocalizer<>));
-        services.TryAddSingleton<IStringLocalizerFactory, LocalizationManagerStringLocalizerFactory>();
-        services.TryAddSingleton<ILocalizationManager, EntityFrameworkLocalizationManager<TContext>>();
+
+        services.TryAddSingleton<EFStringLocalizer<TContext>>();
+        services.TryResolveAsSingleton<IStringLocalizerFactory, EFStringLocalizer<TContext>>();
+        services.TryResolveAsSingleton<IStringResourceChangeToken<TContext>, EFStringLocalizer<TContext>>();
 
         return services;
+    }
+
+    private static void TryResolveAsSingleton<TService, TImplementation>(this IServiceCollection services)
+        where TService : class
+        where TImplementation : TService
+    {
+        services.TryAddSingleton<TService>(sp => sp.GetRequiredService<TImplementation>());
     }
 }

@@ -8,9 +8,7 @@ internal sealed class ResourceSet
 {
     private readonly FrozenDictionary<string, string> _resources;
 
-    public ResourceSet(
-        CultureInfo culture,
-        IEnumerable<KeyValuePair<string, string>> resources)
+    public ResourceSet(CultureInfo culture, IEnumerable<KeyValuePair<string, string>> resources)
     {
         ArgumentNullException.ThrowIfNull(culture);
         ArgumentNullException.ThrowIfNull(resources);
@@ -22,10 +20,10 @@ internal sealed class ResourceSet
     public CultureInfo Culture { get; }
     public ImmutableArray<string> Keys => _resources.Keys;
 
-    public string? Find(string resourceId)
+    public string? Find(string key)
     {
-        ArgumentNullException.ThrowIfNull(resourceId);
+        ArgumentNullException.ThrowIfNull(key);
 
-        return _resources.TryGetValue(resourceId, out var value) ? value : null;
+        return _resources.TryGetValue(key, out var value) ? value : null;
     }
 }

@@ -1,7 +1,7 @@
 namespace Ithline.Extensions.Localization.EntityFrameworkCore;
 
 /// <summary>
-/// Code first model used by <see cref="EntityFrameworkLocalizationManager{TContext}"/>.
+/// Code first model used by <see cref="EFStringLocalizer{TContext}"/>.
 /// </summary>
 public sealed class StringResource
 {
