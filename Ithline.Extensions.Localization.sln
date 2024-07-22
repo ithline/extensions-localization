@@ -1,0 +1,62 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{12BBD29B-B449-4009-9398-BEEA6CB588D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ithline.Extensions.Localization.EntityFrameworkCore", "src\Ithline.Extensions.Localization.EntityFrameworkCore\Ithline.Extensions.Localization.EntityFrameworkCore.csproj", "{995884A6-5248-46D6-8E61-DF1177F2E0DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ithline.Extensions.Localization", "src\Ithline.Extensions.Localization\Ithline.Extensions.Localization.csproj", "{913644F1-131A-4470-86EA-CACD48AFA245}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gen", "gen", "{75FB7E39-B48F-4540-93CB-9111917D294C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{3DF0B9AA-8A42-434E-BCBE-B07A3E45C401}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ithline.Extensions.Localization.SourceGeneration", "gen\Ithline.Extensions.Localization.SourceGeneration\Ithline.Extensions.Localization.SourceGeneration.csproj", "{814C8D25-2D3D-4E8C-A3AA-FA990EFFB066}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{00A558AC-B7D2-4C0D-947C-50AB09B3518B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SrcGenTest", "test\SrcGenTest\SrcGenTest.csproj", "{95043861-4383-4719-933E-F9B15BE38DC8}"
+EndProject
+Global
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6F324CE-73D7-49CE-BBB2-C59E8BEBD39E}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{814C8D25-2D3D-4E8C-A3AA-FA990EFFB066} = {75FB7E39-B48F-4540-93CB-9111917D294C}
+		{913644F1-131A-4470-86EA-CACD48AFA245} = {12BBD29B-B449-4009-9398-BEEA6CB588D5}
+		{95043861-4383-4719-933E-F9B15BE38DC8} = {00A558AC-B7D2-4C0D-947C-50AB09B3518B}
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD} = {12BBD29B-B449-4009-9398-BEEA6CB588D5}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{814C8D25-2D3D-4E8C-A3AA-FA990EFFB066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814C8D25-2D3D-4E8C-A3AA-FA990EFFB066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814C8D25-2D3D-4E8C-A3AA-FA990EFFB066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814C8D25-2D3D-4E8C-A3AA-FA990EFFB066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913644F1-131A-4470-86EA-CACD48AFA245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913644F1-131A-4470-86EA-CACD48AFA245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913644F1-131A-4470-86EA-CACD48AFA245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913644F1-131A-4470-86EA-CACD48AFA245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95043861-4383-4719-933E-F9B15BE38DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95043861-4383-4719-933E-F9B15BE38DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95043861-4383-4719-933E-F9B15BE38DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95043861-4383-4719-933E-F9B15BE38DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995884A6-5248-46D6-8E61-DF1177F2E0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

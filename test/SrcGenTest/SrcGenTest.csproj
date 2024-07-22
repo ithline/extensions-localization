@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\gen\Ithline.Extensions.Localization.SourceGeneration\Ithline.Extensions.Localization.SourceGeneration.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\..\src\Ithline.Extensions.Localization\Ithline.Extensions.Localization.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,8 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
+using Ithline.Extensions.Localization;
 using Ithline.Extensions.Localization.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Localization;
+using static Ithline.Extensions.Localization.EntityFrameworkCore.LinkerFlags;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -17,14 +19,14 @@ public static class EntityFrameworkLocalizationServiceCollectionExtensions
     /// <typeparam name="TContext">The type of the <see cref="DbContext" />.</typeparam>
     /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
     /// <returns>The <see cref="IServiceCollection" /> so that additional calls can be chained.</returns>
-    public static IServiceCollection AddDbContextLocalization<[DynamicallyAccessedMembers(EFCoreHelpers.MemberTypes)] TContext>(this IServiceCollection services)
-        where TContext : DbContext, IStringLocalizationDbContext
+    public static IServiceCollection AddDbContextLocalization<[DynamicallyAccessedMembers(ContextFlags)] TContext>(this IServiceCollection services)
+        where TContext : DbContext, IStringResourceDbContext
     {
         ArgumentNullException.ThrowIfNull(services);
 
-        services.AddMemoryCache();
         services.TryAddTransient(typeof(IStringLocalizer<>), typeof(StringLocalizer<>));
-        services.TryAddSingleton<IStringLocalizerFactory, EntityFrameworkStringLocalizer<TContext>>();
+        services.TryAddSingleton<IStringLocalizerFactory, LocalizationManagerStringLocalizerFactory>();
+        services.TryAddSingleton<ILocalizationManager, EntityFrameworkLocalizationManager<TContext>>();
 
         return services;
     }

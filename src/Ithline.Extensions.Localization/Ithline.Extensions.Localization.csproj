@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Ithline.Extensions.Localization</PackageId>
+    <PackageTags>localization</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+
+    <Description>Provides custom implementation for
+      Microsoft.Extensions.Localization.IStringLocalizerFactory.</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <IsTrimmable>true</IsTrimmable>
+    <BeforePack>IncludeAnalyzersInPackage</BeforePack>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference
+      Include="..\..\gen\Ithline.Extensions.Localization.SourceGeneration\Ithline.Extensions.Localization.SourceGeneration.csproj"
+      ReferenceOutputAssembly="false"
+      PackAsAnalyzer="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <Target Name="IncludeAnalyzersInPackage"
+    Condition="'@(ProjectReference)' != '' and @(ProjectReference->AnyHaveMetadataValue('PackAsAnalyzer', 'true'))">
+    <MSBuild Projects="@(ProjectReference->WithMetadataValue('PackAsAnalyzer', 'true'))"
+      Targets="GetAnalyzerPackFiles"
+      RemoveProperties="SetTargetFramework">
+      <Output TaskParameter="TargetOutputs" ItemName="_AnalyzerFile" />
+    </MSBuild>
+
+    <Message Text="AAAAAA" Importance="high" />
+    <Message Text="%(_AnalyzerFile.AnalyzerPath)" Importance="high" />
+
+    <ItemGroup>
+      <Content Include="@(_AnalyzerFile)" Pack="True" Condition="!%(_AnalyzerFile.IsSymbol)" />
+      <!-- Symbols don't honor PackagePath.  By default they are placed in lib/%(TargetFramework).
+           Pack does honor TargetPath and does Path.Combine("lib/%(TargetFramework)", "%(TargetPath)"),
+           so a rooted path value for TargetPath will override lib.
+           https://github.com/NuGet/Home/issues/10860 -->
+      <_TargetPathsToSymbols Include="@(_AnalyzerFile)" TargetPath="/%(_AnalyzerFile.PackagePath)"
+        Condition="%(_AnalyzerFile.IsSymbol)" />
+    </ItemGroup>
+  </Target>
+
+</Project>

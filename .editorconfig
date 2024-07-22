@@ -25,7 +25,7 @@ dotnet_style_qualification_for_event = false:suggestion
 dotnet_style_qualification_for_field = false:suggestion
 dotnet_style_qualification_for_method = true:warning
 dotnet_style_qualification_for_property = false:suggestion
-dotnet_style_prefer_conditional_expression_over_return=true:suggestion
+dotnet_style_prefer_conditional_expression_over_return = true:suggestion
 
 # Types: use keywords instead of BCL types, and permit var only when the type is clear
 csharp_style_var_for_built_in_types = true:suggestion
@@ -56,6 +56,7 @@ csharp_style_unused_value_assignment_preference = discard_variable:silent
 csharp_style_unused_value_expression_statement_preference = discard_variable:silent
 csharp_using_directive_placement = outside_namespace:suggestion
 csharp_style_namespace_declarations = file_scoped:suggestion
+csharp_style_prefer_primary_constructors = false:silent
 
 csharp_style_prefer_method_group_conversion = true:suggestion
 csharp_style_prefer_top_level_statements = true:silent
@@ -134,52 +135,19 @@ csharp_new_line_before_open_brace = all
 csharp_new_line_between_query_expression_clauses = true
 
 # naming styles
-dotnet_naming_rule.const_should_be_pascal_case.severity = suggestion
-dotnet_naming_rule.const_should_be_pascal_case.style = pascal_case
-dotnet_naming_rule.const_should_be_pascal_case.symbols = const
-
-dotnet_naming_rule.interface_should_be_begins_with_i.severity = warning
-dotnet_naming_rule.interface_should_be_begins_with_i.style = begins_with_i
-dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
-
-dotnet_naming_rule.non_field_members_should_be_pascal_case.severity = warning
-dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
-dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
-
-dotnet_naming_rule.private_or_internal_field_should_be_camel_case.severity = warning
-dotnet_naming_rule.private_or_internal_field_should_be_camel_case.style = underscored_camel_case
-dotnet_naming_rule.private_or_internal_field_should_be_camel_case.symbols = private_or_internal_field
-
-dotnet_naming_rule.types_should_be_pascal_case.severity = warning
-dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case
-dotnet_naming_rule.types_should_be_pascal_case.symbols = types
-
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
 dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.underscored_camel_case.capitalization = camel_case
 dotnet_naming_style.underscored_camel_case.required_prefix = _
 dotnet_naming_style.pascal_case.capitalization = pascal_case
-dotnet_naming_symbols.const.applicable_accessibilities = *
-dotnet_naming_symbols.const.applicable_kinds = field
-dotnet_naming_symbols.const.required_modifiers = const
-dotnet_naming_symbols.interface.applicable_accessibilities = *
-dotnet_naming_symbols.interface.applicable_kinds = interface
-dotnet_naming_symbols.non_field_members.applicable_accessibilities = *
-dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
-dotnet_naming_symbols.private_or_internal_field.applicable_accessibilities = internal, protected, private, protected_internal, private_protected
-dotnet_naming_symbols.private_or_internal_field.applicable_kinds = field
-dotnet_naming_symbols.types.applicable_accessibilities = *
-dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
-
-dotnet_code_quality.CA1068.api_surface = public, internal, protected
 
 # Analzyers
+dotnet_code_quality.CA1068.api_surface = public, internal, protected
 dotnet_diagnostic.CA1010.severity = suggestion
 dotnet_diagnostic.IDE0079.severity = none
 dotnet_diagnostic.CA5350.severity = suggestion
 dotnet_diagnostic.CA5351.severity = suggestion
 dotnet_diagnostic.IL2070.severity = warning
-dotnet_diagnostic.IDE0290.severity = none
 
 [*.js]
 quote_type = single
@@ -193,5 +161,32 @@ end_of_line = lf
 
 # C# files
 [*.{cs,csx}]
+indent_style = space
 indent_size = 4
 tab_width = 4
+
+[.editorconfig]
+indent_style = space
+indent_size = 4
+
+[{*.yaml,*.yml}]
+indent_style = space
+indent_size = 2
+
+[*.cshtml]
+indent_style = space
+indent_size = 2
+
+[*.razor]
+indent_style = space
+indent_size = 2
+
+[*.{c,c++,c++m,cc,ccm,cginc,compute,cp,cpp,cppm,cs,cu,cuh,cxx,cxxm,fx,fxh,h,hh,hlsl,hlsli,hlslinc,hpp,hxx,inc,inl,ino,ipp,ixx,mpp,mq4,mq5,mqh,mxx,resw,resx,tpp,usf,ush,vb}]
+indent_style = space
+indent_size = 4
+tab_width = 4
+
+[*.{appxmanifest,asax,ascx,aspx,axaml,build,cshtml,dtd,master,nuspec,paml,razor,skin,xaml,xamlx,xoml,xsd}]
+indent_style = space
+indent_size = 2
+tab_width = 2

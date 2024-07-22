@@ -1,4 +1,4 @@
-﻿<Project>
+<Project>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <NeutralLanguage>en</NeutralLanguage>
@@ -12,4 +12,20 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <ImplicitUsings>true</ImplicitUsings>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <VersionPrefix>0.3.0</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
+    <Authors>ithline</Authors>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/ithline/extensions-localization</RepositoryUrl>
+    <Copyright>Copyright © 2024 Ithline</Copyright>
+
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 </Project>
