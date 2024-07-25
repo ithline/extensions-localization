@@ -4,8 +4,6 @@
     <PackageId>Ithline.Extensions.Localization.EntityFrameworkCore</PackageId>
     <PackageTags>EF;EFCore;EntityFramework;EntityFrameworkCore;entity-framework-core;localization</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
 
     <Description>Implementation of Ithline.Extensions.Localization.ILocalizationManager using EF Core.</Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

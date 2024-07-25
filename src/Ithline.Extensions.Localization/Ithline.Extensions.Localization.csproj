@@ -4,12 +4,9 @@
     <PackageId>Ithline.Extensions.Localization</PackageId>
     <PackageTags>localization</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl>$(RepositoryUrl)</PackageProjectUrl>
 
     <Description>
-      Provides custom implementation for
-      Microsoft.Extensions.Localization.IStringLocalizerFactory.
+      Provides helpers for working with Microsoft.Extensions.Localization package.
     </Description>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
